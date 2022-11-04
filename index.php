@@ -111,20 +111,20 @@
                             <th>Specialize</th>
                             <th>E-mail</th>
                             <th>Operations</th>
+                            <th>Add to google sheet</th>
                         </tr>
                             <?php
                                 $sql = 'SELECT * FROM student ';
                                 $result = $conn->query($sql);
                                 if($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        $_SESSION_['edit']=$row["s_id"] ;
                                         echo "<tr><td>" . $row["s_id"] . "</td><td>" 
                                         . $row["s_name"] . "</td><td>" . $row["s_specialize"] . "</td><td>" . $row["s_email"] . "</td>
                                         <td><button id='update' ><a href='update.php?edit=".$row["s_id"]."'>Update</a></button>
-                                        <button id='delete' onclick='showMessageDelete()'><a href='delete.php?deleteid=".$row["s_id"]."'>Delete</a></button></td></tr>";
+                                        <button id='delete' onclick='showMessageDelete()'><a href='delete.php?deleteid=".$row["s_id"]."'>Delete</a></button></td>
+                                        <td><button id='sheet' onclick='showMessageDelete()'><a href='sheet.php?sid=".$row["s_id"]."&name=".$row["s_name"]."&sp=".$row["s_specialize"]."&email=".$row["s_email"]."'>Add</a></button></td></tr>";
                                     }
                                 }
-                                
                             ?>
                     </table>
                 </div>
