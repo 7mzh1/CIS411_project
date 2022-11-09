@@ -5,16 +5,16 @@ include 'functions.php';
 <!DOCTYPE html>
 <http>
     <head>
-        <link rel="stylesheet" href="css.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
         <?php
 
-            $old_id = $_GET['edit'];
+            $old_id = $_GET['editid'];
             $isValid = true; 
 		    $errors = ""; 
             $success = "";
-            if(isset($_POST['submit'])&&isset($_GET['edit'])){
+            if(isset($_POST['submit'])){
 
                 $student_name = test_input($_POST["student_name"]);
                 $student_id = test_input($_POST["student_id"]);
@@ -35,6 +35,9 @@ include 'functions.php';
                 }else if(!preg_match("/^[0-9]/",$student_id)){
                     $isValid = false;
                     $errors = $errors . "<br />" . " ID should contain only numbers.";
+                }else if(strlen($student_id)!= 9){
+                    $isValid = false;
+                    $errors = $errors . "<br />" . "ID must be 9 character long.";
                 }
 
                 if (empty($student_specialize)) { 

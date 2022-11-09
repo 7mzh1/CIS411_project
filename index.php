@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>home page</title>
-        <link rel="stylesheet" href="css.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
         <?php
@@ -38,6 +38,9 @@
                 }else if(!preg_match("/^[0-9]/",$student_id)){
                     $isValid = false;
                     $errors = $errors . "<br />" . " ID should contain only numbers.";
+                }else if(strlen($student_id)!= 9){
+                    $isValid = false;
+                    $errors = $errors . "<br />" . "ID must be 9 character long.";
                 }
 
                 if (empty($student_specialize)) { 
@@ -71,7 +74,7 @@
                     <div id="head">
                         <h1>Admin</h1>
                         <p class="error"><?php echo $errors; ?></p>
-                        <p class="success" id="message"><?php echo $success; echo $message; ?></p>
+                        <p class="success"><?php echo $success; echo $message; ?></p>
                     </div>
                     <form action="index.php" method="post">
                         <div>
@@ -114,7 +117,7 @@
                                     while($row = $result->fetch_assoc()) {
                                         echo "<tr><td>" . $row["s_id"] . "</td><td>" 
                                         . $row["s_name"] . "</td><td>" . $row["s_specialize"] . "</td><td>" . $row["s_email"] . "</td>
-                                        <td><button id='update'><a href='update.php?edit=".$row["s_id"]."'>Update</a></button>
+                                        <td><button id='update'><a href='update.php?editid=".$row["s_id"]."'>Update</a></button>
                                         <button id='delete'><a href='delete.php?deleteid=".$row["s_id"]."'>Delete</a></button></td>
                                         <td><button id='update'><a href='sheet.php?sid=".$row["s_id"]."&name=".$row["s_name"]."&sp=".$row["s_specialize"]."&email=".$row["s_email"]."'>Add</a></button></td></tr>";
                                     }

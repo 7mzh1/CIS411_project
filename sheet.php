@@ -17,7 +17,7 @@ $spreadsheetId = "1nHoaphdA5GDx7bYdJsA1CzHAKhx4eNjrRqkSlPlpiX4";  // TODO: Updat
 // The A1 notation of the values to retrieve.
 $range = "sheet1";  // TODO: Update placeholder value.
 
-
+ 
 
 if(isset($_GET["sid"])){
 

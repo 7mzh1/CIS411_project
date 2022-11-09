@@ -9,7 +9,7 @@ body{
     padding: 30px;
     border-radius: 20px;
 }
-#left{
+#left{ 
     float:left;
     width:25%;
 }
@@ -47,7 +47,7 @@ input[type=submit]{
 input[type=text]{
     width:80%;
     height: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 #update{
     background-color: darkgreen;

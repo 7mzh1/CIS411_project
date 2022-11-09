@@ -1,6 +1,5 @@
 <?php
 include 'config.php';
-include 'functions.php';
 if(isset($_GET['deleteid'])){
     $id = $_GET['deleteid'];
     if ($conn->query('DELETE FROM student WHERE s_id = '.$id) === TRUE){
@@ -9,5 +8,5 @@ if(isset($_GET['deleteid'])){
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-}   
+}    
 ?>
